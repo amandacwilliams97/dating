@@ -3,3 +3,14 @@
     January 16, 2019
     general styling goes here
  */
+html {
+    background-color: teal;
+}
+div.container {
+    background-color: teal;
+}
+
+div#content {
+    background-color: orange;
+    margin-left: 10px;
+}
