@@ -4,11 +4,18 @@
     328/dating/views/personal-information.html
 -->
 
+<!--
+0123345678901233456789012334567890123345678901233456789012334567890123345678901233456789
+----------------------------------------------------------------------------------------
+80 characters
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/personal-information.css">
     <link rel="stylesheet" href="../bootstrap/bootstrap.min.css">
 
     <title>Personal Information</title>
@@ -16,6 +23,77 @@
 
 <body>
 <h1>Personal Information</h1>
+<!--
+----------------------------------------------------------------------------------------
+-->
+<div class="container">
+    <form method="post" action="profile">
+        <div class="row">
+        <div class="col-5 rounded" id="content">
+            <fieldset>
+                <label>First Name<br>
+                    <input type="text" name="firstName" id="firstName">
+                </label><br>
+                <label>Last Name<br>
+                    <input type="text" name="lastName" id="lastName">
+                </label><br>
+                <label>Age<br>
+                    <input type="text" name="age" id="age">
+                </label><br>
+
+                <fieldset>
+                    <legend>Gender</legend>
+                    <label>
+                        <input type="radio" name="gender" id="male">
+                        Male
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" id="female">
+                        Female
+                    </label>
+                </fieldset>
+                <br>
+
+                <label>Phone Number<br>
+                    <input type="text" name="phoneNum" id="phoneNum">
+                </label><br>
+            </fieldset>
+        </div>
+<!--
+----------------------------------------------------------------------------------------
+-->
+        <div class="col-6 table">
+            <div class="warning-note rounded">
+                <p><strong>Note:</strong> All information entered is protected by our <a href="#">privacy policy</a> . Profile
+                information can only be viewed by others with your permission.</p>
+            </div>
+
+            <br>
+            <br>
+            <br>
+
+            <br>
+            <br>
+            <br>
+
+            <!--Da frik is this?-->
+            <br>
+            <br>
+            <br>
+
+            <br>
+            <br>
+            <br>
+            <!--Amanda why do you suck at coding?-->
+
+            <div class="table-cell">
+                <input class="btn btn-info float-right" type="submit" value="Next">
+            </div>
+
+        </div>
+        </div>
+    </form>
+</div>
 
 <script src="../bootstrap/bootstrap.min.js"></script>
 <script src="../bootstrap/jquery.slim.min.js"></script>
