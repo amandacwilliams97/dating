@@ -16,9 +16,51 @@
 
 <body>
 <h1>Interests</h1>
+<hr>
+<div class="container rounded">
+        <form method="post" action="#">
+            <div class="content rounded">
+            <div class="row ">
+                <fieldset class="col-11 container">
+                    <legend class="row">In-Door Interests</legend>
+                    <div class="row">
+                        <label>
+                            <!--Add repeat-->
+                            <input class="col-11"
+                                   type="checkbox" value="tv"
+                                   name="inDoorInt[]" id="tv">Watch TV
+                        </label>
+                    </div>
 
-<script src="../bootstrap/bootstrap.min.js"></script>
+                </fieldset>
+            </div>
+            <div class="row">
+                <fieldset class="col-11 container">
+                    <legend class="row">Out-Door Interests</legend>
+                    <div class="row">
+                        <label>
+                            <!--Add repeat-->
+                            <input class="col-11"
+                                   type="checkbox" value="hiking"
+                                   name="outDoorInt[]" id="hiking">Hiking
+                        </label>
+                    </div>
+
+                </fieldset>
+            </div>
+            <div class="row">
+                <div class="col-11">
+                    <input class="btn btn-info float-right" type="submit" value="Next >">
+                </div>
+                </div>
+            </div>
+        </form>
+
+</div>
+
+
 <script src="../bootstrap/jquery.slim.min.js"></script>
 <script src="../bootstrap/popper.min.js"></script>
+<script src="../bootstrap/bootstrap.min.js"></script>
 </body>
 </html>

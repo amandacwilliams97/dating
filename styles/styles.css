@@ -8,9 +8,10 @@ html {
 }
 div.container {
     background-color: teal;
+    padding-top: 10px;
+    padding-left: 10px;
 }
 
 div.content {
     background-color: orange;
-    margin-left: 10px;
 }
