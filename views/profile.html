@@ -17,8 +17,46 @@
 <body>
 <h1>Profile</h1>
 
-<script src="../bootstrap/bootstrap.min.js"></script>
+<div class="container rounded">
+        <form action="interests">
+            <div class="row ">
+                <div class="col-5 rounded content">
+                    <fieldset>
+                        <label>Email<br>
+                            <input type="text" name="email" id="email">
+                        </label><br>
+                        <label>State<br>
+                            <select name="state" id="state">
+                                <option value="washington">Washington</option>
+                            </select>
+                        </label><br>
+                        <fieldset>
+                            <label>Seeking</label><br>
+                            <label>
+                                <input type="radio" name="seeking" id="borker">
+                                Borker
+                            </label>
+                            <label>
+                                <input type="radio" name="seeking" id="moon-moon">
+                                Moon Moon
+                            </label>
+                        </fieldset><br>
+                    </fieldset>
+                </div><!--end col-5-->
+                <div class="col-6 rounded content">
+                    <label>Biography<br>
+                        <textarea name="biography"
+                                  cols="30" rows="5"></textarea>
+                    </label><br>
+                    <input class="btn btn-info float-right" type="submit" value="Next >">
+                </div><!--end col-6-->
+            </div><!--end row-->
+
+        </form>
+</div><!--end container-->
+
 <script src="../bootstrap/jquery.slim.min.js"></script>
 <script src="../bootstrap/popper.min.js"></script>
+<script src="../bootstrap/bootstrap.min.js"></script>
 </body>
 </html>

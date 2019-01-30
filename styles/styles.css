@@ -10,7 +10,7 @@ div.container {
     background-color: teal;
 }
 
-div#content {
+div.content {
     background-color: orange;
     margin-left: 10px;
 }
