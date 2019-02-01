@@ -8,29 +8,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../styles/styles.css">
-    <link rel="stylesheet" href="../bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <script src="bootstrap/jquery.slim.min.js"></script>
+    <script src="bootstrap/popper.min.js"></script>
+    <script src="bootstrap/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="styles/styles.css">
 
     <title>Profile</title>
 </head>
-
+<!--
+****************************************************************************************
+-->
 <body>
 <h1>Profile</h1>
 <hr>
 
 <div class="container rounded">
-        <form action="interests">
+        <form method="post" action="interests">
             <div class="row ">
                 <div class="col-5 rounded content">
                     <fieldset>
                         <label>Email<br>
                             <input type="text" name="email" id="email">
                         </label><br>
+
                         <label>State<br>
                             <select name="state" id="state">
-                                <option value="washington">Washington</option>
+                                <repeat group="{{ @states }}" value="{{ @state }}">
+                                    <option value="{{ @state}}">{{ @state }}</option>
+                                </repeat>
                             </select>
                         </label><br>
+
                         <fieldset>
                             <label>Seeking</label><br>
                             <label>
@@ -44,6 +54,9 @@
                         </fieldset><br>
                     </fieldset>
                 </div><!--end col-5-->
+<!--
+****************************************************************************************
+-->
                 <div class="col-6 rounded content">
                     <label>Biography<br>
                         <textarea name="biography"
@@ -55,9 +68,5 @@
 
         </form>
 </div><!--end container-->
-
-<script src="../bootstrap/jquery.slim.min.js"></script>
-<script src="../bootstrap/popper.min.js"></script>
-<script src="../bootstrap/bootstrap.min.js"></script>
 </body>
 </html>

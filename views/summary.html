@@ -1,0 +1,57 @@
+<!--
+    Amanda Williams
+    <intance href="views/head.html"></intance>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <script src="bootstrap/jquery.slim.min.js"></script>
+    <script src="bootstrap/popper.min.js"></script>
+    <script src="bootstrap/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/summary.css">
+
+    <title>Profile Summary</title>
+</head>
+<body>
+<h1>Here is your Profile</h1>
+<hr>
+<div class="container rounded">
+    <div class="row content rounded">
+        <div class="col-5">
+            <table>
+                <tr><td>Name: {{ @name }}</td></tr>
+                <tr><td>Gender: {{ @gender }}</td></tr>
+                <tr><td>Age: {{ @age}}</td></tr>
+                <tr><td>Phone: {{ @phone }}</td></tr>
+                <tr><td>Email: {{ @email }}</td></tr>
+                <tr><td>State: {{ @state }}</td></tr>
+                <tr><td>Seeking: {{ @seeking }}</td></tr>
+                <tr><td>Interests: {{ @interests }}</td></tr>
+            </table>
+        </div>
+<!--
+****************************************************************************************
+-->
+        <div class="col-6">
+            <img class="rounded" src="images/doggieProfile.jpg" height="284" width="177"/>
+            <p>{{ @biography }}How can you knwo the whims of the world which fights in
+                way you can't for the sake of all that is not and to be forgot by nigh.</p>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-lg-11 align-items-center">
+            <form method="post" action="#">
+                <input class="btn btn-info" type="submit" value="Contact Me!">
+            </form>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

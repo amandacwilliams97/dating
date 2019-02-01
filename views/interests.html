@@ -8,8 +8,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../styles/styles.css">
-    <link rel="stylesheet" href="../bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <script src="bootstrap/jquery.slim.min.js"></script>
+    <script src="bootstrap/popper.min.js"></script>
+    <script src="bootstrap/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/interrests.css">
 
     <title>Interests</title>
 </head>
@@ -18,49 +23,44 @@
 <h1>Interests</h1>
 <hr>
 <div class="container rounded">
-        <form method="post" action="#">
-            <div class="content rounded">
+    <form method="post" action="summary">
+        <div class="content rounded">
             <div class="row ">
-                <fieldset class="col-11 container">
-                    <legend class="row">In-Door Interests</legend>
-                    <div class="row">
-                        <label>
-                            <!--Add repeat-->
-                            <input class="col-11"
-                                   type="checkbox" value="tv"
-                                   name="inDoorInt[]" id="tv">Watch TV
-                        </label>
-                    </div>
-
+                <fieldset class="col-12">
+                    <legend>In-Door Interests</legend>
+                    <repeat group="{{ @indoor }}" value="{{ @name => @text }}">
+                        <div class="col-lg-3 col-sm-5 float-left btn btn-info">
+                            <label >
+                                <input type="checkbox" value="{{ @name }}"
+                                       name="inDoorInt[]" id="{{ @name }}">{{ @text }}
+                            </label>
+                        </div>
+                    </repeat>
                 </fieldset>
             </div>
+
             <div class="row">
-                <fieldset class="col-11 container">
-                    <legend class="row">Out-Door Interests</legend>
-                    <div class="row">
-                        <label>
-                            <!--Add repeat-->
-                            <input class="col-11"
-                                   type="checkbox" value="hiking"
-                                   name="outDoorInt[]" id="hiking">Hiking
-                        </label>
-                    </div>
-
+                <fieldset class="col-12">
+                    <legend>Out-Door Interests</legend>
+                    <repeat group="{{ @outdoor }}" value="{{ @name => @text }}">
+                        <div class="col-lg-3 col-sm-5 float-left btn btn-info">
+                            <label>
+                                <input type="checkbox" value="{{@name}}"
+                                       name="outDoorInt[]" id="{{@name}}">{{ @text }}
+                            </label>
+                        </div>
+                    </repeat>
                 </fieldset>
             </div>
+
             <div class="row">
                 <div class="col-11">
                     <input class="btn btn-info float-right" type="submit" value="Next >">
                 </div>
-                </div>
             </div>
-        </form>
-
+        </div>
+    </form>
 </div>
 
-
-<script src="../bootstrap/jquery.slim.min.js"></script>
-<script src="../bootstrap/popper.min.js"></script>
-<script src="../bootstrap/bootstrap.min.js"></script>
 </body>
 </html>

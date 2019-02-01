@@ -1,0 +1,11 @@
+/*
+    Amanda Williams
+    January 16, 2019
+    general styling goes here
+ */
+
+table, tr, td {
+    background-color: white;
+    border: solid 1px gray;
+    padding: 5px;
+}

@@ -6,7 +6,8 @@
 
 <!--
 0123345678901233456789012334567890123345678901233456789012334567890123345678901233456789
-----------------------------------------------------------------------------------------
+
+****************************************************************************************
 80 characters
 -->
 
@@ -14,9 +15,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../styles/styles.css">
-    <link rel="stylesheet" href="../styles/personal-information.css">
-    <link rel="stylesheet" href="../bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <script src="bootstrap/jquery.slim.min.js"></script>
+    <script src="bootstrap/popper.min.js"></script>
+    <script src="bootstrap/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/personal-information.css">
 
     <title>Personal Information</title>
 </head>
@@ -25,12 +30,12 @@
 <h1>Personal Information</h1>
 <hr>
 <!--
-----------------------------------------------------------------------------------------
+****************************************************************************************
 -->
 <div class="container">
     <form method="post" action="profile">
         <div class="row">
-        <div class="col-5 rounded content">
+        <div class="col-7 rounded content">
             <fieldset>
                 <label>First Name<br>
                     <input type="text" name="firstName" id="firstName">
@@ -59,14 +64,15 @@
                     <input type="text" name="phoneNum" id="phoneNum">
                 </label><br>
             </fieldset>
-        </div>
+        </div><!--end column-->
 <!--
-----------------------------------------------------------------------------------------
+****************************************************************************************
 -->
-        <div class="col-6 table">
+        <div class="col-4 table">
             <div class="warning-note rounded">
-                <p><strong>Note:</strong> All information entered is protected by our <a href="#">privacy policy</a> . Profile
-                information can only be viewed by others with your permission.</p>
+                <p><strong>Note:</strong> All information entered is protected by our
+                    <a href="#">privacy policy</a>. Profile information can only be
+                    viewed by others with your permission.</p>
             </div>
 
             <br>
@@ -92,8 +98,5 @@
     </form>
 </div>
 
-<script src="../bootstrap/jquery.slim.min.js"></script>
-<script src="../bootstrap/popper.min.js"></script>
-<script src="../bootstrap/bootstrap.min.js"></script>
 </body>
 </html>

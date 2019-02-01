@@ -3,17 +3,24 @@
     January 18, 2019
     home page view
 -->
-
+<!--
+    <intance href="views/head.html" />
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../styles/styles.css">
-    <link rel="stylesheet" href="../bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="../styles/home.css">
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <script src="bootstrap/jquery.slim.min.js"></script>
+    <script src="bootstrap/popper.min.js"></script>
+    <script src="bootstrap/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/home.css">
 
     <title>Dog Dating Site</title>
 </head>
+
 <body>
 <div class="container">
 
@@ -29,7 +36,7 @@
             loveable and floofy and cutsy floofers.
             </p>
 
-            <h3>Here's what our user's are saying!</h3>
+            <h3>Here's what our users are saying!</h3>
             <ul>
                 <li>"Bark bark AWOOOOOOOOOOH!!"-Shorthaired German Pointer</li>
                 <li>"Yip yip yipYIP!!"-Pomeranian</li>
@@ -37,22 +44,20 @@
                 <li>"Ruffruffruffruffruff!!"-Dachshund</li>
             </ul>
 
-            <form action="#">
+            <form method="get" action="personalInfo">
                 <input class="btn btn-info" type="submit" value="Find love for your dog!">
             </form>
+
         </div>
 
         <div class="col-sm-7 col-lg-6">
-            <img class="rounded responsive" src="../images/pose.gif" alt="Dog Couple"/>
+            <img class="rounded responsive" src="images/pose.gif" alt="Dog Couple"/>
         </div>
     </div>
 
 
 </div>
 
-<script src="../bootstrap/jquery.slim.min.js"></script>
-<script src="../bootstrap/popper.min.js"></script>
-<script src="../bootstrap/bootstrap.min.js"></script>
 
 </body>
 </html>
