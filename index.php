@@ -33,7 +33,7 @@ $f3->route('GET /', function($f3) {
 
 #-------------------------------------------------------------------------------
 #Route to personal-information.html
-$f3->route('GET /personalInfo', function($f3) {
+$f3->route('GET|POST /personalInfo', function($f3) {
     //$f3->set('page',"personal-information");
     //$f3->set('title',"Personal Information");
     $view = new Template;
@@ -43,8 +43,14 @@ $f3->route('GET /personalInfo', function($f3) {
 #-------------------------------------------------------------------------------
 #Route to profile.html
 $f3->route('POST /profile', function($f3) {
-    $f3->set('page',"profile");
-    $f3->set('title',"Profile");
+    //$f3->set('page',"profile");
+    //$f3->set('title',"Profile");
+    $_SESSION['firstName']=$_POST['firstName'];
+    $_SESSION['lastName']=$_POST['lastName'];
+    $_SESSION['age']=$_POST['age'];
+    $_SESSION['gender']=$_POST['gender'];
+    $_SESSION['phoneNum']=$_POST['phoneNum'];
+
     //array of states
     $f3->set('states', array("Alabama", "Alaska", "Arizona", "Arkansas",
         "California", "Colorado", "Connecticut", "Delaware", "Florida",
@@ -67,13 +73,18 @@ $f3->route('POST /profile', function($f3) {
 $f3->route('POST /interests', function($f3) {
     //$f3->set('page',"interests");
     //$f3->set('title',"Interests");
+    $_SESSION['email']=$_POST['email'];
+    $_SESSION['state']=$_POST['state'];
+    $_SESSION['seeking']=$_POST['seeking'];
+    $_SESSION['biography']=$_POST['biography'];
+
     $f3->set('indoor', array("tv"=>"Watch T.V.", "couch"=>"Eating the couch",
         "barking"=>"Barking at Animals Outside", "board-games"=>"Board Games",
         "puzzles"=>"Puzzles", "reading"=>"Reading",
         "playing-cards"=>"Playing Cards",
         "video-games"=>"Video Games"));
     $f3->set('outdoor', array("hiking"=>"Hiking", "fetch"=>"Playing fetch",
-        "swimming"=>"Swimming", "collecting"=>"Collecting sticks",
+        "swimming"=>"Swimming", "collectStick"=>"Collecting sticks",
         "walks"=>"WALKWALKWALK", "chaseCat"=>"Chasing Cats"));
     $view = new Template;
     echo $view->render('views/interests.html');
@@ -85,15 +96,22 @@ $f3->route('POST /interests', function($f3) {
 $f3->route('POST /summary', function($f3) {
     //$f3->set('page', 'summary');
     //$f3->set('title',"Profile Summary");
+    $_SESSION['inDoorInt']=implode(", ", $_POST['inDoorInt']);
+    $_SESSION['outDoorInt']=implode(", ", $_POST['outDoorInt']);
 
-    $f3->set('name', 'Spot');
-    $f3->set('gender', 'Male');
-    $f3->set('age', '4');
-    $f3->set('phone', '(253) 555-5555');
-    $f3->set('email', 'spot4@ruff.com');
-    $f3->set('state', 'Washington');
-    $f3->set('seeking', 'Borker');
-    $f3->set('interests', 'lots of stuff');
+    $f3->set('fName', $_SESSION['firstName']);
+    $f3->set('lName', $_SESSION['lastName']);
+    $f3->set('gender', $_SESSION['gender']);
+    $f3->set('age', $_SESSION['age']);
+    $f3->set('phone', $_SESSION['phoneNum']);
+    $f3->set('email', $_SESSION['email']);
+    $f3->set('state', $_SESSION['state']);
+    $f3->set('seeking', $_SESSION['seeking']);
+    $f3->set('interests', $_SESSION['inDoorInt']);
+    $f3->set('outerests', $_SESSION['outDoorInt']);
+
+    $f3->set('biography', $_SESSION['biography']);
+
 
     $view= new Template();
     echo $view->render('views/summary.html');

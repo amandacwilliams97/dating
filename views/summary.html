@@ -23,14 +23,14 @@
     <div class="row content rounded">
         <div class="col-5">
             <table>
-                <tr><td>Name: {{ @name }}</td></tr>
+                <tr><td>Name: {{ @fName }} {{ @lName }}</td></tr>
                 <tr><td>Gender: {{ @gender }}</td></tr>
                 <tr><td>Age: {{ @age}}</td></tr>
                 <tr><td>Phone: {{ @phone }}</td></tr>
                 <tr><td>Email: {{ @email }}</td></tr>
                 <tr><td>State: {{ @state }}</td></tr>
                 <tr><td>Seeking: {{ @seeking }}</td></tr>
-                <tr><td>Interests: {{ @interests }}</td></tr>
+                <tr><td>Interests: {{ @interests }}<br>{{ @outerests }}</td></tr>
             </table>
         </div>
 <!--
@@ -38,8 +38,7 @@
 -->
         <div class="col-6">
             <img class="rounded" src="images/doggieProfile.jpg" height="284" width="177"/>
-            <p>{{ @biography }}How can you knwo the whims of the world which fights in
-                way you can't for the sake of all that is not and to be forgot by nigh.</p>
+            <p>{{ @biography }}</p>
         </div>
 
     </div>
