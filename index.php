@@ -14,6 +14,8 @@ error_reporting(E_ALL);
 
 #require autoload
 require_once ('vendor/autoload.php');
+#require validation file
+require ('model/validation-functions.php');
 
 #create an instance of the Base class
 $f3 = Base::instance();

@@ -50,18 +50,23 @@
                 <fieldset>
                     <label>Gender</label><br>
                     <label>
-                        <input type="radio" name="gender" id="male">
+                        <input type="radio" name="gender" value="male" id="male">
                         Male
                     </label>
                     <label>
-                        <input type="radio" name="gender" id="female">
+                        <input type="radio" name="gender" value="female" id="female">
                         Female
                     </label>
                 </fieldset>
                 <br>
 
                 <label>Phone Number<br>
+                    <input type="tel" id="phoneNum" name="phoneNum"
+                           pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
+                           required>
+                    <!--
                     <input type="text" name="phoneNum" id="phoneNum">
+                    -->
                 </label><br>
             </fieldset>
         </div><!--end column-->
@@ -74,23 +79,12 @@
                     <a href="#">privacy policy</a>. Profile information can only be
                     viewed by others with your permission.</p>
             </div>
-
-            <br>
-            <br>
-            <br>
-
-            <br>
-            <br>
-            <br>
-
-            <!--Da frik is this?-->
-            <br>
-            <br>
-            <br>
-
-            <br>
-            <br>
-            <br>
+            <div class="warning-note rounded">
+                <p><strong>Note:</strong> please only enter numbers
+                    for the phone number. No parenthesis, hyphens or spaces.
+                    <br>Ex: 1112223333
+                </p>
+            </div>
             <!--Amanda why do you suck at coding?-->
             <input class="btn btn-info float-right" type="submit" value="Next >">
         </div><!--end column-->

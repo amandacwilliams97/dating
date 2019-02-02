@@ -9,3 +9,9 @@ table, tr, td {
     border: solid 1px gray;
     padding: 5px;
 }
+
+.centerButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

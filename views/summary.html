@@ -20,37 +20,40 @@
 <h1>Here is your Profile</h1>
 <hr>
 <div class="container rounded">
-    <div class="row content rounded">
-        <div class="col-5">
-            <table>
-                <tr><td>Name: {{ @fName }} {{ @lName }}</td></tr>
-                <tr><td>Gender: {{ @gender }}</td></tr>
-                <tr><td>Age: {{ @age}}</td></tr>
-                <tr><td>Phone: {{ @phone }}</td></tr>
-                <tr><td>Email: {{ @email }}</td></tr>
-                <tr><td>State: {{ @state }}</td></tr>
-                <tr><td>Seeking: {{ @seeking }}</td></tr>
-                <tr><td>Interests: {{ @interests }}<br>{{ @outerests }}</td></tr>
-            </table>
-        </div>
-<!--
-****************************************************************************************
--->
-        <div class="col-6">
-            <img class="rounded" src="images/doggieProfile.jpg" height="284" width="177"/>
-            <p>{{ @biography }}</p>
-        </div>
+<div class="content rounded">
 
-    </div>
-    <div class="row">
-        <div class="col-lg-11 align-items-center">
-            <form method="post" action="#">
-                <input class="btn btn-info" type="submit" value="Contact Me!">
-            </form>
-        </div>
+<div class="row">
+    <div class="col-5">
+        <table>
+            <tr><td>Name: {{ @fName }} {{ @lName }}</td></tr>
+            <tr><td>Gender: {{ @gender }}</td></tr>
+            <tr><td>Age: {{ @age}}</td></tr>
+            <tr><td>Phone: {{ @phone }}</td></tr>
+            <tr><td>Email: {{ @email }}</td></tr>
+            <tr><td>State: {{ @state }}</td></tr>
+            <tr><td>Seeking: {{ @seeking }}</td></tr>
+            <tr><td>Interests: {{ @interests }}<br>{{ @outerests }}</td></tr>
+        </table>
+    </div><!--end column-->
+    <!--
+    ****************************************************************************************
+    -->
+    <div class="col-6">
+        <img class="rounded" src="images/doggieProfile.jpg" height="284" width="177"/>
+        <p>{{ @biography }}</p>
+    </div><!--end column-->
+</div><!--end row-->
 
+<div class="row ">
+    <div class="col-lg-11 centerButton">
+        <form method="post" action="#">
+            <input class="btn btn-info " type="submit" value="Contact Me!">
+        </form>
     </div>
-</div>
+</div><!--end row-->
+
+</div><!--end content-->
+</div><!--end container-->
 
 </body>
 </html>
