@@ -20,12 +20,12 @@ error_reporting(E_ALL);
 function validName($input)
 {
     return ctype_alpha(str_replace(' ','',$input));
-}
+}#return true or false
 
 function validAge($input)
 {
-    return ((18===$input||18<$input)&& is_numeric($input));
-}
+    return (($input<=18)&& is_numeric($input));
+}#return true or false
 
 function validPhone($input)
 {
@@ -33,37 +33,43 @@ function validPhone($input)
     #but i'll check anyway.
     $validPhoneNum='/[0-9]{3}[0-9]{3}[0-9]{4}/';
     return preg_match($validPhoneNum,$input)&&(!preg_match('/[0-9]{11,}/',$input));//(is_numeric($input))&&
-}
+}#return true or false
 
 function validIndoor($inputs)
 {
     $output="";
-    $validIndoor=array("tv"=>"Watch T.V.", "couch"=>"Eating the couch",
-        "barking"=>"Barking at Animals Outside", "board-games"=>"Board Games",
-        "puzzles"=>"Puzzles", "reading"=>"Reading",
-        "playing-cards"=>"Playing Cards",
-        "video-games"=>"Video Games");
-    foreach($inputs as $input) {
-        if(!key_exists($input, $validIndoor)){return "False";}
-        if(!($input==$inputs[0]))$output.=", ";
-        $output.=$validIndoor[$input];
+    if(empty($inputs)) {$output="No indoor interests selected.";}
+    else{
+        $validIndoor=array("tv"=>"Watch T.V.", "couch"=>"Eating the couch",
+            "barking"=>"Barking at Animals Outside", "board-games"=>"Board Games",
+            "puzzles"=>"Puzzles", "reading"=>"Reading",
+            "playing-cards"=>"Playing Cards",
+            "video-games"=>"Video Games");
+        foreach($inputs as $input) {
+            if(!key_exists($input, $validIndoor)){return false;}
+            if(!($input==$inputs[0]))$output.=", ";
+            $output.=$validIndoor[$input];
+        }
     }
     return $output;
-}
+}#return formatted array or false
 
 function validOutdoor($inputs)
 {
     $output="";
-    $validOutdoor=array("hiking"=>"Hiking", "fetch"=>"Playing fetch",
-        "swimming"=>"Swimming", "collectStick"=>"Collecting sticks",
-        "walks"=>"WALKWALKWALK", "chaseCat"=>"Chasing Cats");
-    foreach($inputs as $input) {
-        if(!key_exists($input, $validOutdoor)){return "False";}
-        if(!($input==$inputs[0]))$output.=", ";
-        $output.=$validOutdoor[$input];
+    if(empty($inputs)) {$output="No outdoor interest selected.";}
+    else {
+        $validOutdoor=array("hiking"=>"Hiking", "fetch"=>"Playing fetch",
+            "swimming"=>"Swimming", "collectStick"=>"Collecting sticks",
+            "walks"=>"WALKWALKWALK", "chaseCat"=>"Chasing Cats");
+        foreach($inputs as $input) {
+            if(!key_exists($input, $validOutdoor)){return false;}
+            if(!($input==$inputs[0]))$output.=", ";
+            $output.=$validOutdoor[$input];
+        }
     }
     return $output;
-}
+}#return formatted array or false
 
 #test validName()
 /*

@@ -9,6 +9,9 @@ table, tr, td {
     border: solid 1px gray;
     padding: 5px;
 }
+table {
+    border-radius: 3px;
+}
 
 .centerButton {
     display: flex;
