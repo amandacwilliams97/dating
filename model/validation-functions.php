@@ -24,7 +24,17 @@ function validName($input)
 
 function validAge($input)
 {
-    return (($input<=18)&& is_numeric($input));
+    //echo is_numeric($input);
+    //echo $input<=18;
+    if(is_numeric($input)) {
+        switch($input) {
+            case -1:
+                return false;
+            default:
+                return true;
+        }
+    }
+    return false;//((is_numeric($input))&&())
 }#return true or false
 
 function validPhone($input)
@@ -90,12 +100,14 @@ $age1=4;
 $age2='34a';
 $age4 = 50;
 $age3=18;
+$age6='18';
 $age5='28';
 echo "<p>Age-> $age1: ".(validAge($age1)?"True":"False"). //False
     "<br>Age-> $age2: ".(validAge($age2)?"True":"False"). //False
-    "<br>Age-> $age4: ".(validAge($age4)?"True":"False"). //True
-    "<br>Age-> $age3: ".(validAge($age3)?"True":"False"). //True
-    "<br>Age-> $age5: ".(validAge($age5)?"True":"False"). //True
+    "<br>Age-> $age4: ".(validAge($age4)?"True":"False"). // True
+    "<br>Age-> $age3: ".(validAge($age3)?"True":"False"). // True
+    "<br>Age-> $age5: ".(validAge($age5)?"True":"False"). // True
+    "<br>Age-> $age6: ".(validAge($age6)?"True":"False"). // True
     "</p>";
 */
 #test validPhone()

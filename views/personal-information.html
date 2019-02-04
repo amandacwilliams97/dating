@@ -61,22 +61,23 @@
                 <fieldset>
                     <label>Gender</label><br>
                     <label>
-                        <input type="radio" name="gender" value="male" id="male">
+                        <input type="radio" name="gender" value="male" id="male" {{@male}}>
                         Male
                     </label>
                     <label>
-                        <input type="radio" name="gender" value="female" id="female">
+                        <input type="radio" name="gender" value="female" id="female" {{@female}}>
                         Female
                     </label>
                 </fieldset>
                 <br>
 
                 <label>Phone Number<br>
+                    <input type="text" name="phoneNum" id="phoneNum" value="{{@phoneNum}}">
+
+                    <!--
                     <input type="tel" id="phoneNum" name="phoneNum"
                            pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
                            required>
-                    <!--
-                    <input type="text" name="phoneNum" id="phoneNum">
                     -->
                 </label><br>
                 <span class="invalidWarning">

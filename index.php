@@ -54,16 +54,59 @@ $f3->route('POST /profile', function($f3) {
     $f3->set('errorPhone', '');
 
     //array of states
-    $f3->set('states', array("Alabama", "Alaska", "Arizona", "Arkansas",
-        "California", "Colorado", "Connecticut", "Delaware", "Florida",
-        "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas",
-        "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts",
-        "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana",
-        "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico",
-        "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma",
-        "Oregon", "Pennsylvania", "Rhode Island", "South Carolina",
-        "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia",
-        "Washington", "West Virginia", "Wisconsin", "Wyoming"));
+     $states=array("Alabama"=>"",
+        "Alaska"=>"",
+        "Arizona"=>"",
+        "Arkansas"=>"",
+        "California"=>"",
+        "Colorado"=>"",
+        "Connecticut"=>"",
+        "Delaware"=>"",
+        "Florida"=>"",
+        "Georgia"=>"",
+        "Hawaii"=>"",
+        "Idaho"=>"",
+        "Illinois"=>"",
+        "Indiana"=>"",
+        "Iowa"=>"",
+        "Kansas"=>"",
+        "Kentucky"=>"",
+        "Louisiana",
+        "Maine",
+        "Maryland",
+        "Massachusetts",
+        "Michigan"=>"",
+        "Minnesota",
+        "Mississippi",
+        "Missouri",
+        "Montana",
+        "Nebraska"=>"",
+        "Nevada"=>"",
+        "New Hampshire"=>"",
+        "New Jersey"=>"",
+        "New Mexico"=>"",
+        "New York"=>"",
+        "North Carolina"=>"",
+        "North Dakota"=>"",
+        "Ohio"=>"",
+        "Oklahoma"=>"",
+        "Oregon"=>"",
+        "Pennsylvania"=>"",
+        "Rhode Island"=>"",
+        "South Carolina"=>"",
+        "South Dakota"=>"",
+        "Tennessee"=>"",
+        "Texas"=>"",
+        "Utah"=>"",
+        "Vermont"=>"",
+        "Virginia"=>"",
+        "Washington"=>"",
+        "West Virginia"=>"",
+        "Wisconsin"=>"",
+        "Wyoming"=>"");
+     //if(!empty($_POST['state'])) {$states[$_POST['state']]='selected';}
+
+    $f3->set('states',$states);
     $view = new Template;
 
     #validate and assign data
@@ -82,10 +125,19 @@ $f3->route('POST /profile', function($f3) {
     else { #any inputs are invalid
         if(!validName($_POST['firstName'])) {$f3->set('errorFirstName',"Please provide a first name.");}
         if(!validName($_POST['lastName']))  {$f3->set('errorLastName',"Please provide a last name.");}
-        if(!validAge($_POST['age']))        {$f3->set('errorAge',"Please please be 18 or older.");}
+        if(!validAge($_POST['age']))        {$f3->set('errorAge',"Please be 18 or older.");}
         if(!validPhone($_POST['phoneNum'])) {$f3->set('errorPhone',"Please provide a phone number 
-            in the following format : 2223334444");}
-        $f3->set('gender', $_POST['gender']);
+                                                in the following format : 2223334444");}
+        #make form sticky
+        if($_POST['gender']=="male"){$f3->set('male','checked');}
+        if($_POST['gender']=="female"){$f3->set('female','checked');}
+
+        $f3->set('firstName',$_POST['firstName']);
+        $f3->set('lastName',$_POST['lastName']);
+        $f3->set('age',$_POST['age']);
+        $f3->set('phoneNum',$_POST['phoneNum']);
+
+
         echo $view->render('views/personal-information.html');
     }#reload page
 });
@@ -116,6 +168,12 @@ $f3->route('POST /interests', function($f3) {
     }
     else { #email was not provided
         $f3->set('errorEmail', 'Please provide an email address.');
+        $f3->set('states',$_POST['state']);
+
+        if($_POST['seeking']=="borker"){$f3->set('borker','checked');}
+        if($_POST['seeking']=="moon-moon"){$f3->set('moonMoon','checked');}
+
+        $f3->set('biography',$_POST['biography']);
         echo $view->render('views/profile.html');
     }
 });
@@ -151,6 +209,8 @@ $f3->route('POST /summary', function($f3) {
     }#print summary
     else { #interests are not valid
         $f3->set('errorInterests', 'What are you doing?');
+        $f3->set('selectedInt',$_POST['inDoorInt']);
+        $f3->set('selectedOut',$_POST['outDoorInt']);
         echo $view->render('views/interests.html');
     }#reload form and STOP HACKING
 });

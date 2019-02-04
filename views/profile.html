@@ -30,26 +30,29 @@
                 <div class="col-5 rounded content">
                     <fieldset>
                         <label>Email<br>
-                            <input type="text" name="email" id="email">
+                            <input type="text" name="email" id="email" value="{{@email}}">
                         </label><br>
                         <span class="invalidWarning">{{ @errorEmail }}</span><br>
 
                         <label>State<br>
+                            <!---->
                             <select name="state" id="state">
-                                <repeat group="{{ @states }}" value="{{ @state }}">
-                                    <option value="{{ @state}}">{{ @state }}</option>
+                                <repeat group="{{ @states }}" value="{{ @state => @select }}">
+                                    <option name="{{@state}}" id="{{ @state }}" value="{{ @state}}" {{@select}}>{{ @state }}</option>
                                 </repeat>
-                            </select>
+
+                                <!--<check if="{{ @state===@stateSelected }}">checked</check> {{ strcmp(@state, @stateSelected)}}-->
+                            </select><!---->
                         </label><br>
 
                         <fieldset>
                             <label>Seeking</label><br>
                             <label>
-                                <input type="radio" name="seeking" value="borker" id="borker">
+                                <input type="radio" name="seeking" value="borker" id="borker" {{@borker}}>
                                 Borker
                             </label>
                             <label>
-                                <input type="radio" name="seeking" value="moon-moon" id="moon-moon">
+                                <input type="radio" name="seeking" value="moon-moon" id="moon-moon" {{@moonMoon}}>
                                 Moon Moon
                             </label>
                         </fieldset><br>
@@ -61,7 +64,7 @@
                 <div class="col-6 rounded content">
                     <label>Biography<br>
                         <textarea name="biography"
-                                  cols="30" rows="5"></textarea>
+                                  cols="30" rows="5" >{{@biography}}</textarea>
                     </label><br>
                     <input class="btn btn-info float-right" type="submit" value="Next >">
                 </div><!--end col-6-->
