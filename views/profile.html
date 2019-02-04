@@ -17,9 +17,6 @@
 
     <title>Profile</title>
 </head>
-<!--
-****************************************************************************************
--->
 <body>
 <h1>Profile</h1>
 <hr>
@@ -32,19 +29,16 @@
                         <label>Email<br>
                             <input type="text" name="email" id="email" value="{{@email}}">
                         </label><br>
+
                         <span class="invalidWarning">{{ @errorEmail }}</span><br>
 
                         <label>State<br>
-                            <!---->
                             <select name="state" id="state">
                                 <repeat group="{{ @states }}" value="{{ @state => @select }}">
                                     <option name="{{@state}}" id="{{ @state }}" value="{{ @state}}" {{@select}}>{{ @state }}</option>
                                 </repeat>
-
-                                <!--<check if="{{ @state===@stateSelected }}">checked</check> {{ strcmp(@state, @stateSelected)}}-->
-                            </select><!---->
+                            </select>
                         </label><br>
-
                         <fieldset>
                             <label>Seeking</label><br>
                             <label>
@@ -58,9 +52,6 @@
                         </fieldset><br>
                     </fieldset>
                 </div><!--end col-5-->
-<!--
-****************************************************************************************
--->
                 <div class="col-6 rounded content">
                     <label>Biography<br>
                         <textarea name="biography"

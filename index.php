@@ -105,7 +105,10 @@ $f3->route('POST /profile', function($f3) {
         "Wisconsin"=>"",
         "Wyoming"=>"");
      //if(!empty($_POST['state'])) {$states[$_POST['state']]='selected';}
-
+    if(!empty($_POST['state'])) {
+        $stateSelected=$_POST['state'];
+        $states[$stateSelected]= "selected";
+    }
     $f3->set('states',$states);
     $view = new Template;
 
@@ -168,7 +171,6 @@ $f3->route('POST /interests', function($f3) {
     }
     else { #email was not provided
         $f3->set('errorEmail', 'Please provide an email address.');
-        $f3->set('states',$_POST['state']);
 
         if($_POST['seeking']=="borker"){$f3->set('borker','checked');}
         if($_POST['seeking']=="moon-moon"){$f3->set('moonMoon','checked');}
