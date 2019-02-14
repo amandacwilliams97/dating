@@ -65,17 +65,15 @@
 
                 <label>Phone Number<br>
                     <input type="text" name="phoneNum" id="phoneNum" value="{{@phoneNum}}">
-
-                    <!--
-                    <input type="tel" id="phoneNum" name="phoneNum"
-                           pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
-                           required>
-                    -->
                 </label><br>
                 <span class="invalidWarning">
                     {{ @errorPhone }}
                 </span><br>
 
+                <label class="btn btn-info">Premium Membership<br>
+                    <input type="checkbox" name="premium" value="premium" id="premium" {{ @premCheck }}>
+                    Sign me up for a Premium membership
+                </label>
             </fieldset>
         </div><!--end column-->
 <!--

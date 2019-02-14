@@ -3,7 +3,7 @@
  * @author Amanda Williams
  * @copyright
  * @version 1.0
- * class PremiumMember
+ * Class PremiumMember
  */
 #-------------------------------------------------------------------------------
 class PremiumMember extends Member
@@ -17,11 +17,13 @@ class PremiumMember extends Member
      * @param $_inDoorInterests
      * @param $_outDoorInterests
      */
-    public function __construct($fname, $lname, $age, $gender, $phone,
-                                $_inDoorInterests, $_outDoorInterests)
+    public function __construct($fname, $lname, $age, $gender, $phone)
     {
+        /*
+         * #assign separately
         $this->_inDoorInterests = $_inDoorInterests;
         $this->_outDoorInterests = $_outDoorInterests;
+        */
         parent::__construct($fname, $lname, $age, $gender, $phone);
     }
 
