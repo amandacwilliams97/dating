@@ -5,8 +5,6 @@
  * 328/dating/index1.php
  */
 
-#Start session
-session_start();
 
 #Error Reporting
 ini_set("display_errors", 1);
@@ -15,6 +13,10 @@ error_reporting(E_ALL);
 #-------------------------------------------------------------------------------
 #require autoload
 require_once ('vendor/autoload.php');
+
+#Start session
+session_start();
+
 #require validation file
 require ('model/validation-functions.php');
 
@@ -51,6 +53,7 @@ $f3->route('GET|POST /personalInfo', function($f3) {
             &&validAge($_POST['age'])
             &&validPhone($_POST['phoneNum'])) {
 
+            /**/
             #check if premium
             if(isset($_POST['premium'])) {
                 $_SESSION['premium']=true;
@@ -66,6 +69,8 @@ $f3->route('GET|POST /personalInfo', function($f3) {
                     $_POST['lastName'], $_POST['age'], $_POST['gender'],
                     $_POST['phoneNum']);
             }
+
+
             /*
             #assign session variables
             $_SESSION['firstName']=$_POST['firstName'];
@@ -74,6 +79,7 @@ $f3->route('GET|POST /personalInfo', function($f3) {
             $_SESSION['phoneNum']=$_POST['phoneNum'];
             $_SESSION['gender']=$_POST['gender'];
             */
+            
             #reroute to profile.html
             $f3->reroute('/profile');
         }
@@ -218,7 +224,7 @@ $f3->route('GET|POST /profile', function ($f3) {
 
     #render profile.html
     $view = new Template();
-    echo $view->render('views/profile.html');
+    echo $view->render('views/profile.html'); #part of error points here
 });
 
 #-------------------------------------------------------------------------------
