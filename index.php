@@ -291,31 +291,26 @@ $f3->route('GET|POST /summary', function ($f3) {
     #get member obj
     $member = $_SESSION['memberObj'];
 
-    #set new data
-    $member->setEmail($_POST['email']);
-    $member->setState($_POST['state']);
-    $member->setSeeking($_POST['seeking']);
-    $member->setBio($_POST['bio']);
-    #restore member obj
+    #save to member obj
     $_SESSION['memberObj']=$member;
 
 
     $f3->set('fName', $member->getFname());
     $f3->set('lName', $member->getLname());
     $f3->set('age', $member->getAge());
-    $f3->set('gender', strtoupper( $member->getGender()));
+    $f3->set('gender', strtoupper($member->getGender()));
     $f3->set('phone', $member->getPhone());
+
     $f3->set('email', $member->getEmail());
     $f3->set('state', $member->getState());
     $f3->set('seeking', $member->getSeeking());
 
     #if Premium set interests
     if($_SESSION['premium']) {
-
         $interests= $member->getInDoorInterests();
         $outerests= $member->getOutDoorInterests();
-        $f3->set('premiumInterests',
-            "<tr><td>Interests: $interests<br>$outerests</td></tr>");
+        $premiumInterests = "<tr><td>Interests: $interests<br>$outerests</td></tr>";
+        $f3->set('premiumInterests', $premiumInterests);
     }
     else {
         $f3->set('premiumInterests',"");
