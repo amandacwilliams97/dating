@@ -5,7 +5,6 @@
  * 328/dating/index1.php
  */
 
-
 #Error Reporting
 ini_set("display_errors", 1);
 error_reporting(E_ALL);
@@ -189,17 +188,9 @@ $f3->route('GET|POST /profile', function ($f3) {
             $member->setEmail($_POST['email']);
             $member->setState($_POST['state']);
             $member->setSeeking($_POST['seeking']);
-            $member->setBio($_POST['bio']);
+            $member->setBio($_POST['biography']);
             #restore member obj
             $_SESSION['memberObj']=$member;
-
-            /*
-            #assign session variables
-            $_SESSION['email']=$_POST['email'];
-            $_SESSION['state']=$_POST['state'];
-            $_SESSION['seeking']=$_POST['seeking'];
-            $_SESSION['biography']=$_POST['biography'];
-            */
 
             #if premium
             if($_SESSION['premium']) {
