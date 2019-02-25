@@ -33,7 +33,14 @@
             <tr><td>State: {{ @state }}</td></tr>
             <tr><td>Seeking: {{ @seeking }}</td></tr>
 
-            {{ @premiumInterests }}
+            <check if="{{ @premiumInterest!='' }}">
+                <true><tr><td>{{ @premiumInterests }}</td></tr></true>
+                <false></false>
+            </check>
+
+            <!--
+            -->
+            <tr><td>{{ @premiumInterests }}</td></tr>
 
         </table>
     </div><!--end column-->

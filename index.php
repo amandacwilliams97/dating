@@ -57,6 +57,7 @@ $f3->route('GET|POST /personalInfo', function($f3) {
             #check if premium
             if(isset($_POST['premium'])) {
                 $_SESSION['premium']=true;
+                $f3->set('premium', true);
                 #create premium member and assign values
                 $_SESSION['memberObj']= new PremiumMember($_POST['firstName'],
                     $_POST['lastName'], $_POST['age'], $_POST['gender'],
@@ -257,14 +258,6 @@ $f3->route('GET|POST /interests', function ($f3) {
             #restore member obj
             $_SESSION['memberObj']=$member;
 
-            /*
-            #assign session variables
-            $_SESSION['interests']= validIndoor($_POST['inDoorInt']);
-            $_SESSION['outerests']= validIndoor($_POST['outDoorInt']);
-            //$f3->set('interests', validIndoor($_POST['inDoorInt']));
-            //$f3->set('outerests', validIndoor($_POST['outDoorInt']));
-            */
-
             #if a gender is not chosen
             if($_SESSION['gender']!='male'||$_SESSION['gender']!='female'){$f3->set('gender', 'Not Given');}
             else{$f3->set('gender', $_SESSION['gender']);}
@@ -308,9 +301,10 @@ $f3->route('GET|POST /summary', function ($f3) {
     #if Premium set interests
     if($_SESSION['premium']) {
         $interests= $member->getInDoorInterests();
-        $outerests= $member->getOutDoorInterests();
-        $premiumInterests = "<tr><td>Interests: $interests<br>$outerests</td></tr>";
+        $outerests= $member->getOutDoorInterests();//
+        $premiumInterests = "Interests: \n$interests\n$outerests";
         $f3->set('premiumInterests', $premiumInterests);
+        //$f3->set('premiumInterests', <tr><td>$premiumInterests</td></tr>);
     }
     else {
         $f3->set('premiumInterests',"");
