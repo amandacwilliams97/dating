@@ -20,6 +20,7 @@ session_start();
 require ('model/validation-functions.php');
 
 #Connect to database
+require_once ('model/database.php');
 $dbh = connect();
 if(!$dbh) {
     exit;
@@ -304,10 +305,19 @@ $f3->route('GET|POST /summary', function ($f3) {
         //$f3->set('premiumInterests', <tr><td>$premiumInterests</td></tr>);
 
         #add member to datatable
-
+        #TABLE COLUMNS IN ORDER
+        #member_id, fname, lname, age, gender, phone, email, state, seeking, bio, premium, image, interests
+        insertMember($member->getFname(), $member->getLname(), $member->getAge(), $member->getGender(),
+            $member->getPhone(), $member->getEmail(), $member->getState(), $member->getSeeking(),
+            $member->getBio(), 1, "",$f3->get('premiumInterests'));
     }
     else {
         $f3->set('premiumInterests',"");
+
+        #add member to datatable
+        insertMember($member->getFname(), $member->getLname(), $member->getAge(), $member->getGender(),
+            $member->getPhone(), $member->getEmail(), $member->getState(), $member->getSeeking(),
+            $member->getBio(), 0, "", "");
     }
 
     $f3->set('biography', $member->getBio());
