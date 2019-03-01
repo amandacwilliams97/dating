@@ -19,6 +19,12 @@ session_start();
 #require validation file
 require ('model/validation-functions.php');
 
+#Connect to database
+$dbh = connect();
+if(!$dbh) {
+    exit;
+}
+
 #-------------------------------------------------------------------------------
 #create an instance of the Base class
 $f3 = Base::instance();
@@ -296,6 +302,9 @@ $f3->route('GET|POST /summary', function ($f3) {
         $premiumInterests = "Interests: \n$interests\n$outerests";
         $f3->set('premiumInterests', $premiumInterests);
         //$f3->set('premiumInterests', <tr><td>$premiumInterests</td></tr>);
+
+        #add member to datatable
+
     }
     else {
         $f3->set('premiumInterests',"");
