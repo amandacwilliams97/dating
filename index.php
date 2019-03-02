@@ -309,7 +309,7 @@ $f3->route('GET|POST /summary', function ($f3) {
         #member_id, fname, lname, age, gender, phone, email, state, seeking, bio, premium, image, interests
         insertMember($member->getFname(), $member->getLname(), $member->getAge(), $member->getGender(),
             $member->getPhone(), $member->getEmail(), $member->getState(), $member->getSeeking(),
-            $member->getBio(), 1, "",$f3->get('premiumInterests'));
+            $member->getBio(), "checked", "",$f3->get('premiumInterests'));
     }
     else {
         $f3->set('premiumInterests',"");
@@ -317,7 +317,7 @@ $f3->route('GET|POST /summary', function ($f3) {
         #add member to datatable
         insertMember($member->getFname(), $member->getLname(), $member->getAge(), $member->getGender(),
             $member->getPhone(), $member->getEmail(), $member->getState(), $member->getSeeking(),
-            $member->getBio(), 0, "", "");
+            $member->getBio(), "", "", "");
     }
 
     $f3->set('biography', $member->getBio());
@@ -327,6 +327,28 @@ $f3->route('GET|POST /summary', function ($f3) {
     echo $view->render('views/summary.html');
 });
 
+#-------------------------------------------------------------------------------
+#Route to admin.html
+$f3->route('GET|POST /admin', function ($f3) {
+
+    $members = getMembers();
+    $f3->set('members', $members);
+
+    #render admin.html
+    $view = new Template();
+    echo $view->render('views/admin.html');
+});
+
+#-------------------------------------------------------------------------------
+#Route to memberDisplay.html
+$f3->route('GET|POST /displayMember@memId', function($f3, $params) {
+    $member=getMember($params['memId']);
+    $f3->set('member', $member['0']);
+    $f3->set('fname', $member['fname']);
+
+    $view = new Template();
+    echo $view->render('views/displayMember.html');
+});
 #-------------------------------------------------------------------------------
 #run fat free
 $f3->run();

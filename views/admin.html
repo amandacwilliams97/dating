@@ -1,7 +1,7 @@
 <!--
     Amanda Williams
-    January 18, 2019
-    home page view
+    March 1, 2019
+    admin page, displays Members table
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -13,24 +13,73 @@
     <script src="bootstrap/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/admin.css">
 
-    <title>Admin: all users</title>
+    <title>Admin</title>
 </head>
 
 <body>
-
 <nav class="rounded">
     <!--
     <a href="admin" class="btn btn-info rounded float-right">ADMIN</a>
     -->
     <h3>My Dating Website</h3>
 </nav>
+<h1>Members Table</h1>
+<hr>
 <div class="container">
     <div class="row">
         <div class="content">
-            <h1>Members Table</h1>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>Member ID</th>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Phone Number</th>
+                    <th>Email</th>
+                    <th>State</th>
+                    <th>Seeking</th>
+                    <th>Premium</th>
+                    <th>Image</th>
+                </tr>
+                <repeat group="{{ @members }}" value="{{ @member }}">
+                    <tr>
+                        <tr>
+                            <td rowspan="2">
+                                <a href="displayMember{{@member['member_id']}}" class="btn btn-info">View User</a>
+                            </td>
+                            <td class="text-center">{{ @member['member_id'] }}</td>
+                            <td>{{ @member['lname'] }}</td>
+                            <td>{{ @member['fname'] }}</td>
+                            <td>{{ @member['age'] }}</td>
+                            <td>{{ @member['gender'] }}</td>
+                            <td>{{ @member['phone'] }}</td>
+                            <td class="text-center">{{ @member['email'] }}</td>
+                            <td>{{ @member['state'] }}</td>
+                            <td>{{ @member['seeking'] }}</td>
+                            <check if="{{ !empty(@member['premium']) }}">
+                                <true>
+                                    <td class="text-center"><input type="checkbox" checked></td>
+                                </true>
 
+                                <false>
+                                    <td class="text-center"><input type="checkbox"></td>
+                                </false>
+                            </check>
+                            <td>{{ @member['image'] }}</td>
+                        </tr>
+                        <tr>
+                            <th>Bio</th>
+                            <td class="unique" colspan="4">{{ @member['bio'] }}</td>
+                            <th>Interests</th>
+                            <td class="unique" colspan="5">{{ @member['interests'] }}</td>
+                        </tr>
+                    </tr>
+                </repeat>
+            </table>
         </div>
     </div>
 </div>

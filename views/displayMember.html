@@ -1,0 +1,56 @@
+<!--
+    Amanda Williams
+    March 1, 2019
+    displayMember page, displays a member's profile
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <script src="bootstrap/jquery.slim.min.js"></script>
+    <script src="bootstrap/popper.min.js"></script>
+    <script src="bootstrap/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/summary.css">
+
+    <title>Member's Profile</title>
+</head>
+
+<body>
+<nav class="rounded">
+    <a href="admin" class="btn btn-info rounded float-right">ADMIN</a>
+    <h3>My Dating Website</h3>
+</nav>
+<h1>{{ @member['fname'] }} {{ @member['lname'] }}</h1>
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="content">
+            <table class="rounded col-5">
+                <tr><td>Gender: {{ strtoupper(@member['gender']) }}</td></tr>
+                <tr><td>Age: {{ @member['age'] }}</td></tr>
+                <tr><td>Phone: {{ @member['phone'] }}</td></tr>
+                <tr><td>Email: {{ @member['email'] }}</td></tr>
+                <tr><td>State: {{ @member['state'] }}</td></tr>
+                <tr><td>Seeking: {{ @member['seeking'] }}</td></tr>
+
+
+            </table>
+        </div>
+        <div class="content col-4">
+            <div class="bg-white rounded">
+                <p>Biography: {{ @member['bio'] }}</p>
+            </div>
+            <check if="{{ !empty(@member['interests']) }}">
+                <div class="bg-white rounded">
+                    <p>{{ @member['interests'] }}</p>
+                </div>
+
+            </check>
+        </div>
+    </div>
+</div>
+</body>
+</html>

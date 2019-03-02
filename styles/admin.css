@@ -1,0 +1,28 @@
+/*
+    Amanda Williams
+    March 1, 2019
+    stylings for the admin page and table
+ */
+
+table, th, td {
+    border: 3px solid gray;
+}
+
+th {
+    background-color: lightgray;
+}
+
+td {
+    background-color: darkorange;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+td.unique {
+    background-color: teal;
+    color: white;
+}
+
+tr {
+    align-content: center;
+}

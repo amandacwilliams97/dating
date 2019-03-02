@@ -93,8 +93,10 @@ function getMember($id)
 {
     global $dbh;
 
+    //$id = (integer)$id;
+
     //Create SQL statement
-    $sql = "SELECT * FROM Members WHERE 'member_id'=$id";
+    $sql = "SELECT * FROM Members WHERE member_id=$id";
 
     //prepare statement
     $statement = $dbh->prepare($sql);
@@ -103,7 +105,7 @@ function getMember($id)
     $statement->execute();
 
     //save results
-    $result = $statement->fetch(PDO::FETCH_ASSOC);
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
     //return member
     return $result;
